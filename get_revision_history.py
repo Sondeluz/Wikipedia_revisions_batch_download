@@ -78,7 +78,7 @@ def write_revisions(f, revisions_data):
             f.write(",\n")
 
 
-def get_all_revision_ids(lang, article_title):
+def download_revisions(lang, article_title):
     revisions_written = 0
     with open(f'{article_title}_{lang}.json', 'w') as f:
         f.write("[\n")  # JSON head
@@ -170,7 +170,7 @@ if __name__ == "__main__":
 
     # Language code for the article
     lang = 'en'
-    get_all_revision_ids(lang, title)
+    download_revisions(lang, title)
 
     # Parse and clean the downloaded revisions in batches, using multiprocessing.
     # We do this after downloading because parsing Wikitext and then cleaning the
